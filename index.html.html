@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FLOWRA - AI Productivity App</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&amp;family=Space+Grotesk:wght@600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-variant": "#273647",
+                        "error": "#ffb4ab",
+                        "inverse-on-surface": "#233143",
+                        "on-secondary-fixed": "#001f26",
+                        "surface-container-low": "#0d1c2d",
+                        "secondary": "#4cd7f6",
+                        "on-error": "#690005",
+                        "surface-container-highest": "#273647",
+                        "inverse-primary": "#732ee4",
+                        "primary": "#d2bbff",
+                        "on-surface": "#d4e4fa",
+                        "background": "#051424",
+                        "on-surface-variant": "#ccc3d8",
+                        "on-primary-fixed": "#25005a",
+                        "tertiary-fixed-dim": "#ddb8ff",
+                        "primary-container": "#7c3aed",
+                        "on-tertiary-fixed-variant": "#62259b",
+                        "outline": "#958da1",
+                        "on-primary": "#3f008e",
+                        "secondary-fixed": "#acedff",
+                        "primary-fixed": "#eaddff",
+                        "surface-container-high": "#1c2b3c",
+                        "on-primary-fixed-variant": "#5a00c6",
+                        "surface-container-lowest": "#010f1f",
+                        "on-tertiary-container": "#f2e0ff",
+                        "surface-tint": "#d2bbff",
+                        "tertiary-container": "#844abe",
+                        "on-background": "#d4e4fa",
+                        "surface": "#051424",
+                        "error-container": "#93000a",
+                        "primary-fixed-dim": "#d2bbff",
+                        "on-secondary-fixed-variant": "#004e5c",
+                        "on-tertiary-fixed": "#2c0051",
+                        "tertiary": "#ddb8ff",
+                        "on-tertiary": "#490081",
+                        "tertiary-fixed": "#f0dbff",
+                        "secondary-container": "#03b5d3",
+                        "surface-bright": "#2c3a4c",
+                        "inverse-surface": "#d4e4fa",
+                        "on-secondary": "#003640",
+                        "on-secondary-container": "#00424e",
+                        "on-primary-container": "#ede0ff",
+                        "on-error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#4cd7f6",
+                        "outline-variant": "#4a4455",
+                        "surface-dim": "#051424",
+                        "surface-container": "#122131"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "unit": "4px",
+                        "container-max": "1280px",
+                        "gutter": "24px",
+                        "margin-desktop": "48px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Inter"],
+                        "label-sm": ["Space Grotesk"],
+                        "display-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["24px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "label-sm": ["12px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #0D0D0D; color: #d4e4fa; }
+        .glass-panel { background: rgba(17, 24, 39, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .glow-button { background: linear-gradient(135deg, #7c3aed 0%, #06b6d4 100%); box-shadow: 0 0 20px rgba(124, 58, 237, 0.4); }
+        .glow-button:hover { box-shadow: 0 0 30px rgba(124, 58, 237, 0.6); }
+        .neon-border { border: 1px solid transparent; background: linear-gradient(#111827, #111827) padding-box, linear-gradient(to right, #7c3aed, #06b6d4) border-box; box-shadow: inset 0 0 8px rgba(6, 182, 212, 0.1); }
+    </style>
+</head>
+<body class="font-body-md text-body-md antialiased overflow-x-hidden selection:bg-primary-container selection:text-white">
+<!-- Header/Nav -->
+<header class="bg-background/80 backdrop-blur-xl text-primary font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg border-b border-white/10 shadow-[0_0_20px_rgba(124,58,237,0.2)] docked full-width top-0 sticky z-50">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
+<div class="font-display-lg text-display-lg font-black tracking-tighter text-primary bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary scale-95 active:scale-90 transition-transform cursor-pointer">
+                FLOWRA
+            </div>
+<nav class="hidden md:flex gap-8 items-center font-body-md text-body-md">
+<a class="text-secondary border-b-2 border-secondary font-bold pb-1 hover:glow-shadow-primary transition-all duration-300" href="#">Home</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors hover:glow-shadow-primary transition-all duration-300" href="#">Features</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors hover:glow-shadow-primary transition-all duration-300" href="#">Pricing</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors hover:glow-shadow-primary transition-all duration-300" href="#">Contact</a>
+</nav>
+<button class="glow-button px-6 py-2 rounded-full text-white font-label-sm text-label-sm uppercase tracking-wider transition-all hidden md:block">
+                Get Started
+            </button>
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined text-3xl">menu</span>
+</button>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="px-margin-mobile md:px-margin-desktop py-24 max-w-container-max mx-auto relative min-h-[819px] flex items-center">
+<!-- Abstract Background Glows -->
+<div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary-container rounded-full mix-blend-screen filter blur-[128px] opacity-20 pointer-events-none"></div>
+<div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary rounded-full mix-blend-screen filter blur-[128px] opacity-20 pointer-events-none"></div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-gutter items-center relative z-10 w-full">
+<div class="flex flex-col gap-8">
+<h1 class="font-display-lg text-display-lg font-black leading-tight tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-white via-primary to-secondary">
+                    Turn your chaos into a clear daily plan.
+                </h1>
+<p class="font-body-md text-body-md text-on-surface-variant text-lg max-w-xl">
+                    FLOWRA uses AI to prioritize your tasks and build a smart schedule — so you can focus on what matters. Your mind, organized. Your time, yours.
+                </p>
+<div class="flex flex-col sm:flex-row gap-4 mt-4">
+<button class="glow-button px-8 py-4 rounded-lg text-white font-label-sm text-label-sm uppercase tracking-wider text-center flex-1 sm:flex-none">
+                        Get Started Free
+                    </button>
+<button class="px-8 py-4 rounded-lg text-primary border border-primary/30 hover:bg-primary/10 transition-colors font-label-sm text-label-sm uppercase tracking-wider text-center flex-1 sm:flex-none">
+                        Watch Demo
+                    </button>
+</div>
+</div>
+<div class="relative mt-12 lg:mt-0 glass-panel rounded-xl p-4 shadow-2xl border border-white/5 h-[500px] flex items-center justify-center overflow-hidden">
+<img class="absolute inset-0 w-full h-full object-cover opacity-50 mix-blend-luminosity" data-alt="A sleek, modern digital dashboard interface hovering in a dark, moody environment. The UI features neon purple and cyan data visualizations, task lists, and glowing progress bars against a deep void-like background. The aesthetic is high-tech vaporwave futurism, emphasizing deep work and focused productivity. Soft luminous light spills from the interface elements onto the surrounding dark space." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnqQZ-Ea8x2LUaVify2WI7mhRBQdlQ9ECVSygbQB9PfBDsDB9r9LiRysJuT2dE4VozNxF8V9SB2kKbc7xAqRudkT-dyvkXoVRdzit4OaqCBuqvOvpjuPS7YaYWdgz1DV5Ums_AsFiLnhPqhEHcB_QMo-ZbLFaEosqH1T8ZJlViz3tVdKZDe_SIV2wEeHenu7aD_E6N3r-PPMr9raguIjtBkxnPrS8jiz87pe0_kls0kwV0qU1eFb4KI5pKiCkcVZVwP_LvpWrlhPk"/>
+<div class="relative z-10 text-center">
+<span class="material-symbols-outlined text-6xl text-secondary mb-4 opacity-80" data-icon="dashboard" data-weight="fill">dashboard</span>
+<p class="font-label-sm text-label-sm text-secondary tracking-widest uppercase">App Interface</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest text-secondary font-body-md text-body-md full-width py-12 border-t border-outline-variant flat no shadows">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-margin-desktop gap-gutter max-w-container-max mx-auto">
+<div class="font-headline-lg text-headline-lg font-bold text-primary cursor-pointer hover:opacity-80 transition-opacity">
+                FLOWRA
+            </div>
+<div class="text-on-surface-variant text-sm text-center md:text-left">
+                © 2024 FLOWRA. Powering the future of deep work.
+            </div>
+<div class="flex gap-6">
+<a class="text-on-surface-variant hover:text-secondary transition-colors text-sm cursor-pointer hover:opacity-80 transition-opacity" href="#">Privacy</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors text-sm cursor-pointer hover:opacity-80 transition-opacity" href="#">Terms</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors text-sm cursor-pointer hover:opacity-80 transition-opacity" href="#">Security</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors text-sm cursor-pointer hover:opacity-80 transition-opacity" href="#">Docs</a>
+</div>
+</div>
+</footer>
+</body></html>
